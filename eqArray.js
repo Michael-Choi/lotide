@@ -16,5 +16,7 @@ const eqArrays = (actual, expected) => {
   }
   return true;
 };
+
+export default eqArrays;
 // TEST CODE
 assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => should PASS
