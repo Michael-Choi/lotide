@@ -10,18 +10,20 @@ function assertEqual(actual, expected) {
 }
 
 const countOnly = function(allItems, itemsToCount) {
-  let result = {};
-  for (let i = 0; i < allItems.length; i++) {
-    for (let name in itemsToCount)
-      if (allItems[i] == name) {
-        if (result[name] == null) {
-          result[name] = 0;
-        }
-        result[name] += 1;
+  let results = {};
+
+  allItems.map(name => {
+    if (itemsToCount[`${name}`]) {
+      if (!results[`${name}`]) {
+        results[`${name}`] = 1;
+      } else {
+        results[`${name}`] += 1;
       }
-  }
-  return result;
+    }
+  });
+  return results;
 };
+
 // TEST CODE
 const firstNames = [
   "Karl",
@@ -35,6 +37,7 @@ const firstNames = [
   "Joe"
 ];
 
+//result1 is an object that is returned from countOnly
 const result1 = countOnly(firstNames, {
   Jason: true,
   Karima: true,

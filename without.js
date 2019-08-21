@@ -17,22 +17,30 @@ const eqArrays = (actual, expected) => {
   return true;
 };
 
+// const without = (source, remove) => {
+//   let result = source;
+//   for (let i = 0; i < source.length; i++) {
+//     for (let j = 0; j < remove.length; j++) {
+//       if (remove.includes(result[i])) {
+//         result.splice(i, 1);
+//       }
+//     }
+//   }
+//   console.log(result);
+//   return result;
+// };
+
 const without = (source, remove) => {
   let result = source;
-  for (let i = 0; i < source.length; i++) {
-    for (let j = 0; j < remove.length; j++) {
-      if (remove.includes(result[i])) {
-        result.splice(i, 1);
-      }
-    }
-  }
-  console.log(result);
+  result = result.filter(i => {
+    return !remove.includes(i);
+  });
   return result;
 };
 
-// assertArrayEqual([2, 3], without([1, 2, 3], [1]));
-// without([1, 2, 3], [1]); // => [2, 3]
-// without(["1", "2", "3"], [1, 2, "3"]); // => ["1", "2"]
+assertArraysEqual([2, 3], without([1, 2, 3], [1]));
+without([1, 2, 3], [1]); // => [2, 3]
+without(["1", "2", "3"], [1, 2, "3"]); // => ["1", "2"]
 
 const words = ["hello", "world", "lighthouse"];
 without(["hello", "world", "lighthouse"], ["lighthouse"]); // no need to capture return value for this test case
