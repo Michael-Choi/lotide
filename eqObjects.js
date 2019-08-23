@@ -36,6 +36,10 @@ const eqObjects = function(object1, object2) {
   return true;
 };
 
+eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }); // => true
+eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }); // => false
+eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }); // => false
+
 // const ab = { a: "2", b: "2" };
 // const ba = { b: "2", a: "2" };
 // assertEqual(eqObjects(ab, ba), true); // => true
