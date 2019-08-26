@@ -1,7 +1,7 @@
 {
-  "name": "lotide",
+  "name": "@michael-choi/lotide",
   "version": "1.0.0",
-  "description": "",
+  "description": "A lodash clone made for educational purposes",
   "main": "",
   "directories": {
     "test": "test"
@@ -19,7 +19,7 @@
     "type": "git",
     "url": "git+https://github.com/Michael-Choi/lotide.git"
   },
-  "author": "",
+  "author": "Michael-Choi",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Michael-Choi/lotide/issues"
