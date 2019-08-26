@@ -1,5 +1,8 @@
 // FUNCTION IMPLEMENTATION
-const assertArrayEqual = function(actual, expected) {
+
+const eqArrays = require("./eqArrayRecursive");
+
+const assertArraysEqual = function(actual, expected) {
   if (eqArrays(actual, expected) === true) {
     console.log(`💯  Assertion passed: "${actual} === ${expected}"`);
     return true;
@@ -8,14 +11,5 @@ const assertArrayEqual = function(actual, expected) {
     return false;
   }
 };
-const eqArrays = (actual, expected) => {
-  for (let i = 0; i < actual.length; i++) {
-    if (actual[i] !== expected[i]) {
-      return false;
-    }
-  }
-  return true;
-};
 
-// TEST CODE
-assertArrayEqual([1, 2, 3], [1, 2, 3]); // => should PASS
+module.exports = assertArraysEqual;

@@ -1,22 +1,5 @@
-// FUNCTION IMPLEMENTATION
-function assertEqual(actual, expected) {
-  if (actual === expected) {
-    console.log(`💯  Assertion passed: "${actual} === ${expected}"`);
-    return true;
-  } else {
-    console.log(`Assertion failed: "${actual} !== ${expected}"`);
-    return false;
-  }
-}
-
-const eqArrays = (actual, expected) => {
-  for (let i = 0; i < Math.max(actual.length, expected.length); i++) {
-    if (actual[i] !== expected[i]) {
-      return false;
-    }
-  }
-  return true;
-};
+const assertEqual = require("./assertEqual");
+const eqArrays = require("./eqArrayRecursive");
 
 const eqObjects = function(object1, object2) {
   if (Object.keys(object1).length != Object.keys(object2).length) {
@@ -36,20 +19,20 @@ const eqObjects = function(object1, object2) {
   return true;
 };
 
-eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }); // => true
-eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }); // => false
-eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }); // => false
+// eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }); // => true
+// eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }); // => false
+// eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }); // => false
 
-// const ab = { a: "2", b: "2" };
-// const ba = { b: "2", a: "2" };
-// assertEqual(eqObjects(ab, ba), true); // => true
+// // const ab = { a: "2", b: "2" };
+// // const ba = { b: "2", a: "2" };
+// // assertEqual(eqObjects(ab, ba), true); // => true
 
-// const abc = { a: "1", b: "2", c: "3" };
-// assertEqual(eqObjects(ab, abc), false); // => false
+// // const abc = { a: "1", b: "2", c: "3" };
+// // assertEqual(eqObjects(ab, abc), false); // => false
 
-const cd = { c: "1", d: ["2", 3] };
-const dc = { d: ["2", 3], c: "1" };
-console.log(eqObjects(cd, dc)); // => true
+// const cd = { c: "1", d: ["2", 3] };
+// const dc = { d: ["2", 3], c: "1" };
+// console.log(eqObjects(cd, dc)); // => true
 
-const cd2 = { c: "1", d: ["2", 3, 4] };
-console.log(eqObjects(cd, cd2)); // => false
+// const cd2 = { c: "1", d: ["2", 3, 4] };
+// console.log(eqObjects(cd, cd2)); // => false
